@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="calcular">operaciones</string>
+    <string name="resultado">Resultado</string>
+    <string-array name="operaciones">
+        <item>Seleccionar operación</item>
+        <item>Sumar</item>
+        <item>Restar</item>
+        <item>Multiplicar</item>
+        <item>Dividir</item>
+    </string-array>
+</resources>
