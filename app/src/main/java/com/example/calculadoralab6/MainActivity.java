@@ -40,11 +40,22 @@ public class MainActivity extends AppCompatActivity {
         try{
             String resultado="";
             String seleccionado = spnOperaciones.getSelectedItem().toString();
-            if(seleccionado.equals("Dividir")){
-                float n1 = Integer.parseInt(txtNum1.getText().toString());
-                float n2 = Integer.parseInt(txtNum2.getText().toString());
-                float division = n1 / n2;
+            if (seleccionado.equals("Seleccionar operación")){
+                new mensajito("Error D:", "Por favor seleccione una operación", "" +
+                        "Aceptar ;)").show(getSupportFragmentManager(), "xd");
+                lblResultado.setText("");
+            }else if(seleccionado.equals("Dividir")){
+                double n1 = Integer.parseInt(txtNum1.getText().toString());
+                double n2 = Integer.parseInt(txtNum2.getText().toString());
+                double division = n1 / n2;
                 resultado = String.valueOf(division);
+                if(chkSi.isChecked()) {
+                    new mensajito("Resultado", "El resultado es = " + resultado, "" +
+                            "Aceptar ;)").show(getSupportFragmentManager(), "xd");
+                    lblResultado.setText("");
+                }else{
+                    lblResultado.setText("El resultado es = "+resultado);
+                }
             }else{
                 int n1 = Integer.parseInt(txtNum1.getText().toString());
                 int n2 = Integer.parseInt(txtNum2.getText().toString());
@@ -60,18 +71,19 @@ public class MainActivity extends AppCompatActivity {
                     int multiplicacion = n1 * n2;
                     resultado = String.valueOf(multiplicacion);
                 }
-            }
-            if(chkSi.isChecked()) {
-                new mensajito("Resultado", "El resultado es = " + resultado, "" +
-                        "Aceptar ;)").show(getSupportFragmentManager(), "xd");
-                lblResultado.setText("");
-            }else{
-                lblResultado.setText("El resultado es = "+resultado);
+                if(chkSi.isChecked()) {
+                    new mensajito("Resultado", "El resultado es = " + resultado, "" +
+                            "Aceptar ;)").show(getSupportFragmentManager(), "xd");
+                    lblResultado.setText("");
+                }else{
+                    lblResultado.setText("El resultado es = "+resultado);
+                }
             }
         }
         catch (Exception e)
         {
-            Toast.makeText(this,"Error en la suma de los datos" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            new mensajito("Error en los digitos D:", "Verifique o coloque los digitos", "" +
+                    "Aceptar :(").show(getSupportFragmentManager(), "xd");
         }
 
     }

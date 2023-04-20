@@ -6,7 +6,7 @@
     android:layout_height="fill_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
@@ -27,7 +27,8 @@
             android:hint="Introduzca primer numero"
             android:id="@+id/txtNum1"
             android:padding="10sp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_below="@id/spnOperacion"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -36,23 +37,29 @@
             android:hint="Introduzca segundo numero"
             android:id="@+id/txtNum2"
             android:padding="10sp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_below="@id/txtNum1"/>
         <TextView
+            android:id="@+id/tvDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Mostar el resultado en un dialog"
             android:paddingTop="10sp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:layout_below="@id/txtNum2" />
         <LinearLayout
+            android:id="@+id/lyCheck"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_below="@+id/tvDialog">
 
             <CheckBox
                 android:id="@+id/chkSi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Si" />
+                android:text="Si"
+                />
 
         </LinearLayout>
 
@@ -62,14 +69,16 @@
             android:layout_height="wrap_content"
             android:text="Calcular"
             android:onClick="SumarNumeros"
-            android:backgroundTint="@color/black"/>
+            android:backgroundTint="@color/black"
+            android:layout_below="@id/lyCheck"/>
 
         <TextView
             android:id="@+id/lblRes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:layout_below="@id/button"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
